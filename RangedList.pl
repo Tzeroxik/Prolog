@@ -1,4 +1,4 @@
-%Predicate to create a list with a [Min,Max] domain.
+
 createListFromRange(Min,Max,List):- addElement(Min,Max,[],List).
 addElement(Min,Max,_,[]):- Min > Max.
 addElement(Min,Max,List,[Max|List]):- Min = Max. 
