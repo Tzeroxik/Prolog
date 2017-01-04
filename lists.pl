@@ -1,8 +1,8 @@
 %(1)% Creates one list with [Min, Max] domain, with the following sequence (Min,Min+1,Min+2,...,Max). 
 listFromRange(Min,Max,List):- addElement(Min,Max,[],List).
-addElement(Min,Max,_,[]):- Min > Max.
-addElement(Min,Max,List,[Max|List]):- Min =:= Max. 
-addElement(Min,Max,List,ListF):- N is Max-1, addElement(Min, N, [Max|List],ListF).
+addElement(Min,Max,List,ListF):- Min < Max ,N is Min+1, append(List,[N],ListN), addElement(N,Max,ListN,ListF).
+addElement(_,_,List,List).
+
 
 %(2)% Creates any number of random int lists with [0, RN] domain.
 randomIntList(RN,List) :- random(X),setNumberRange(X,RN,Range), addElement(0,Range,RN,[],List).
