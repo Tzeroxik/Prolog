@@ -5,3 +5,4 @@ calculate(X - Y, R):- R is X - Y.
 calculate(X * Y, R):- R is X * Y.
 calculate(X / Y, R):- R is X / Y.
 calculate(X ^ Y, R):- R is X ^ Y.
+calculate(X,X).
