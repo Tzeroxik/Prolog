@@ -5,6 +5,7 @@ addElement(_,_,List,List).
 
 
 %(2)% Creates any number of random int lists with [0, RN] domain.
+createRIL(List):- read(X), randomIntList(X,List). % with userInput
 randomIntList(RN,List) :- random(X),setNumberRange(X,RN,Range), addElement(0,Range,RN,[],List).
 addElement(N,R,RN,_,List) :- N > R, randomIntList(RN,List).
 addElement(N,R,_,List,List) :- N =:= R.
