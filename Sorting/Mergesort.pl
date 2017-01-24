@@ -1,7 +1,7 @@
 %mergesort algorythm implementation
 mergeSort([],[]).
 mergeSort([E],[E]).
-mergeSort(Lista, ListaOrdenada) :- separate(Lista,Ll,Lr), mergeSort(Lr, LrF), mergeSort(Ll,LlF), join(LlF, LrF, ListaOrdenada).
+mergeSort(Lista, ListaOrdenada) :- separate(Lista,Ll,Lr), mergeSort(Lr, LrF), mergeSort(Ll,LlF),join(LlF, LrF, ListaOrdenada),!.
 separate([],[],[]).
 separate([E],[E],[]).
 separate([C,E|R],[C|L1],[E|L2]):- separate(R,L1,L2).
