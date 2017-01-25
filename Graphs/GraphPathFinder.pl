@@ -84,5 +84,3 @@ join(L,[],L).
 join([],L,L).
 join([A1/A2/A3|R1],[B1/B2/B3|R2] ,[A1/A2/A3|Lf]) :- A3 =< B3, join(R1,[B1/B2/B3|R2],Lf).
 join(L,[C2|R2] ,[C2|Lf]) :- join(R2,L,Lf).
-
-
