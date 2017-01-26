@@ -51,16 +51,20 @@ connection(i,h,19).
 solvePath(X,Y,G,W):-findGoal(X,Y,[X],L),reverse(L,G),pathWeight(X,G,0,W),!.
 findGoal(P,P,Visited,Visited):-!.
 findGoal(CurrPoint,FPoint,Visited,Path) :- findNext(CurrPoint,FPoint,Visited,Next),
-	findGoal(Next,FPoint,[Next|Visited],Path).    
+	findGoal(Next,FPoint,[Next|Visited],Path).
+
+findNext(_,FinalPoint,_,Next):- findall(CurrPoint/Point/Dist,connection(CurrPoint,Point,Dist),LP),isFinal(FinalPoint,LP,Next).
 findNext(CurrPoint,FinalPoint,PastPoints,Next):- findall(CurrPoint/Point/Dist,connection(CurrPoint,Point,Dist),LP),
-    sortByDist(LP,OLP), choosePoint(OLP,FinalPoint,PastPoints,Next).
+    sortByDist(LP,OLP),choosePoint(OLP,FinalPoint,PastPoints,Next),!.
 
 %se for o ponto final ir para esse.
 %se for um ponto nao visitado
 %tentar o proximo
 %caso não dê voltar para trás
+isFinal(F,[_/F/_|_],F).
+isFinal(_,[],_):-fail.
+isFinal(F,[_|R],Final):-isFinal(F,R,Final).
 
-choosePoint([_/FinalPoint/_|_],FinalPoint,_,FinalPoint).
 choosePoint([_/Point/_|_],_,Visited,Point):- \+member(Point,Visited).
 choosePoint([],_,[LastP|_],LastP).
 choosePoint([_|R],FinalPoint,Visited,Point):-
