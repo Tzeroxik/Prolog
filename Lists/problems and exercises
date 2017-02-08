@@ -1,0 +1,8 @@
+findLast([X],X):-!.
+findLast([_|T],E):-findLast(T,E).
+
+findLastButOne([C,_],C):-!.
+findLastButOne([_|T],E):-findLastButOne(T,E).
+
+numberOfElements([],0).
+numberOfElements([_|R],Total):-numberOfElements(R,N), Total is N + 1.
