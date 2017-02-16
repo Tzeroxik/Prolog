@@ -43,10 +43,7 @@ connection(i,d,30).
 connection(i,g,21).
 connection(i,h,19).
 
-%for future file reading graphs
-%addPoint(P):- \+point(P),asserta(point(P)).
-%addconnection(P,P,0).
-%addconnection(P1,P2,D):- \+connection(P1,P2,_),\+connection(P2,P1,_),asserta(connection(P1,P2,D)),asserta(connection(P2,P1,D)).
+% algorithm to find a path from point to point always going trough the shortest paths or adjacent paths
 
 solvePath(X,Y,G,W):-findGoal(X,Y,[X],L),reverse(L,G),pathWeight(X,G,0,W),!.
 findGoal(P,P,Visited,Visited):-!.
