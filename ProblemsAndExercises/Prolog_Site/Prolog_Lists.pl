@@ -12,5 +12,5 @@ findLastButOne([_|T],E):-findLastButOne(T,E).
 %TODO
 
 % 1.4
-numberOfElements([],0).
+numberOfElements([],0):-!.
 numberOfElements([_|R],Total):-numberOfElements(R,N), Total is N + 1.
