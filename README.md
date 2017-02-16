@@ -1,2 +1,2 @@
 # PrologExercises
-Repo for Prolog 
+Repo for Prolog language code
