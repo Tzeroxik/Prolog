@@ -1,1 +1,1 @@
-Contains implementations of what I to be overall useful.  
+Contains implementations of what I consider to be overall useful.  
