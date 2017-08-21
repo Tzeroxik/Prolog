@@ -1,4 +1,4 @@
-%********************List and tree structure predicates******************%
+%********************List and tree structure predicates*****************%
 
 % isList(?X) - succeeds if "X" is a list.
 isList([]).
